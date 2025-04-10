@@ -19,3 +19,10 @@ app.get("/api/data", (req, res) => {
 });
 
 app.listen(PORT, () => console.log(`Server is Started At: ${PORT}`));
+
+
+
+// C=> Create => POST
+// R=> Read => GET
+// U=> Update => PUT
+// D=> Delete => DELETE

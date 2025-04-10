@@ -1,0 +1,10 @@
+### TEST GET / WEBSITE
+
+GET http://localhost:3000
+
+### TEST POST / WEBSITE
+GET http://localhost:3000/dashboard
+
+
+### TEST POST / WEBSITE gata end point
+GET http://localhost:3000/api/data
