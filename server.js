@@ -27,7 +27,14 @@ app.post("/api/data", (req, res) => {
   const newEntry = req.body;
   console.log(newEntry);
   data.push(newEntry.email);
+  data.push(newEntry.ema);
   res.sendStatus(201);
+});
+
+app.delete("/api/data", (req, res) => {
+  data.pop();
+  console.log("We deleted the element off the Array");
+  send.sendStatus(203);
 });
 
 app.listen(PORT, () => console.log(`Server is Started At: ${PORT}`));
