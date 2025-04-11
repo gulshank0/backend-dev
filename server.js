@@ -2,9 +2,10 @@ const express = require("express");
 
 const app = express();
 const PORT = 3000;
-let data = {
-  name: "harkirat",
-};
+let data = ["kunal"];
+
+//middleware invokes the
+app.use(express.json());
 console.log("server is up");
 app.get("/", (req, res) => {
   console.log("hi there");
@@ -20,6 +21,13 @@ app.get("/api/data", (req, res) => {
 <p> ${JSON.stringify(data)}</p>
 
 </body>`);
+});
+
+app.post("/api/data", (req, res) => {
+  const newEntry = req.body;
+  console.log(newEntry);
+  data.push(newEntry.email);
+  res.sendStatus(201);
 });
 
 app.listen(PORT, () => console.log(`Server is Started At: ${PORT}`));
