@@ -15,14 +15,17 @@ app.get("/dashboard", (req, res) => {
   res.send("<h2>this ia dashboard</h2>");
 });
 app.get("/api/data", (req, res) => {
-  res.send(data);
+  res.send(`<body style="background:pink ;color:blue">
+<h1>DATA : </h1>
+<p> ${JSON.stringify(data)}</p>
+
+</body>`);
 });
 
 app.listen(PORT, () => console.log(`Server is Started At: ${PORT}`));
-
-
 
 // C=> Create => POST
 // R=> Read => GET
 // U=> Update => PUT
 // D=> Delete => DELETE
+
