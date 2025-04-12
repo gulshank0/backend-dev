@@ -51,8 +51,16 @@ router.post("/login", (req, res) => {
       return res.status(404).send({ messege: "User not found" });
     }
     const passwordIsValid = bcrypt.compareSync(password, user.password);
-  if(!passwordIsValid){return res.status(401).send({messege:"Invalid password"})}
+    if (!passwordIsValid) {
+      return res.status(401).send({ messege: "Invalid password" });
+    }
+    console.log(user);
+    //then we have a successfull authentication
+    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
+      expiresIn: "24h",
+    });
 
+    res.json({ token });
   } catch (err) {
     consol.log(err.messege);
     res.sendStatus(503);
