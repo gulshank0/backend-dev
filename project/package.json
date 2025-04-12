@@ -2,9 +2,9 @@
   "name": "project",
   "version": "1.0.0",
   "main": "index.js",
-  "type": "modules",
+  "type": "module",
   "scripts": {
-    "dev": "node src/server.js",
+    "dev": "node --watch --env-file=.env --experimental-strip-types --experimental-sqlite ./src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
