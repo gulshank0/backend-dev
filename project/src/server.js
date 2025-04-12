@@ -6,8 +6,9 @@ import todoRoutes from "./routes/todoRoutes.js";
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-//Get the file path from the URL of current module
+//
 const __filename = fileURLToPath(import.meta.url);
+
 // Get the directory name from the file path
 const __dirname = dirname(__filename);
 //Middleware
@@ -21,6 +22,6 @@ app.get("/", (req, res) => {
 
 // Routes
 app.use("/auth", authRoutes);
-app.use("/todos", authRoutes);
+app.use("/todos", todoRoutes);
 
 app.listen(PORT, () => console.log(`Server Started at:${PORT}`));
