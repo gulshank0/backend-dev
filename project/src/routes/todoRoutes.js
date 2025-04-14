@@ -10,12 +10,12 @@ router.get("/", (req, res) => {
   res.json(todos);
 });
 
-//Create All todos
+//Create a  todos
 router.post("/", (req, res) => {});
-// Update All Todos
+// Update a Todos
 router.put("/:id", (req, res) => {});
 
-//Delete Todos
+//Delete a Todos
 router.delete("/:id", (req, res) => {});
 
 export default router;
