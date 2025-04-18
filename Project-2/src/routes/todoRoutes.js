@@ -1,5 +1,6 @@
 import express from "express";
 import prisma from "../prismaClient.js";
+
 const router = express.Router();
 
 // Get all todos for logged-in user
@@ -9,12 +10,14 @@ router.get("/", async (req, res) => {
       userId: req.userId,
     },
   });
+
   res.json(todos);
 });
 
 // Create a new todo
 router.post("/", async (req, res) => {
   const { task } = req.body;
+
   const todo = await prisma.todo.create({
     data: {
       task,
@@ -29,7 +32,8 @@ router.post("/", async (req, res) => {
 router.put("/:id", async (req, res) => {
   const { completed } = req.body;
   const { id } = req.params;
-  const updateTodo = await prisma.todo.update({
+
+  const updatedTodo = await prisma.todo.update({
     where: {
       id: parseInt(id),
       userId: req.userId,
@@ -38,8 +42,7 @@ router.put("/:id", async (req, res) => {
       completed: !!completed,
     },
   });
-
-  res.json(updateTodo);
+  res.json(updatedTodo);
 });
 
 // Delete a todo
